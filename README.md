@@ -42,3 +42,9 @@ These components form the operational backbone of the OpenStack Controller, ensu
 ### 3. Monitoring & Observability Stack
 - **Prometheus:** A powerful metrics aggregator that scrapes performance data from the Controller, Compute, and Storage nodes.
 - **Grafana:** The visualization platform that connects to Prometheus to display real-time graphs, resource utilization dashboards, and system health status.
+
+---
+
+## 📚 References
+- [OpenStack Component Services](https://www.openstack.org/software/project-navigator/openstack-components#openstack-services)
+- [OpenStack Installation Guide (2026.1)](https://docs.openstack.org/2026.1/install/)
