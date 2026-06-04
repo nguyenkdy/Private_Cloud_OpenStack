@@ -3,10 +3,6 @@
 
 Below is the deployment model of the system, including the Controller, Compute/Storage nodes, Backend Services (MariaDB, RabbitMQ, Memcached, etcd), OpenStack Core Services (Nova, Neutron, Keystone, Glance, Cinder, Swift, Heat), and the monitoring/alerting system (Prometheus/Grafana):
 
-<p align="center">
-  <img width="70%" alt="OpenStack Architecture" src="https://github.com/user-attachments/assets/6ffcfc0d-e344-4330-909c-598db10a3316" />
-</p>
-
 ---
 
 ## 🎥 Project Demo Video
