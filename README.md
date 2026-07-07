@@ -41,6 +41,27 @@ These components form the operational backbone of the OpenStack Controller, ensu
 
 ---
 
+## ⚙️ Reference Configuration Files (2026.1 / Ubuntu)
+
+The [`configs/`](configs/) directory holds reference configuration files transcribed verbatim from the official [OpenStack 2026.1 Installation Guide](https://docs.openstack.org/2026.1/install/) (Ubuntu flavor), matching the components described above. Every file's header comment cites its exact source URL and notes related install steps (SQL/CLI commands, package installs) shown alongside it in the guide.
+
+> ⚠️ **All passwords, secrets, and placeholder values** (e.g. `KEYSTONE_DBPASS`, `RABBIT_PASS`, `METADATA_SECRET`, `NEUTRON_PASS`, IP addresses like `10.0.0.11`) **must be replaced with real values** before any of this is used in an actual deployment.
+
+| Folder | Service | Files |
+|---|---|---|
+| [`configs/backend/`](configs/backend/) | MariaDB, RabbitMQ, Memcached, etcd | `mariadb.cnf`, `rabbitmq.md`, `memcached.conf`, `etcd.conf` |
+| [`configs/keystone/`](configs/keystone/) | Identity | `keystone.conf` |
+| [`configs/glance/`](configs/glance/) | Image | `glance-api.conf` |
+| [`configs/nova/`](configs/nova/) | Compute | `nova-controller.conf`, `nova-compute.conf` |
+| [`configs/neutron/`](configs/neutron/) | Networking (self-service, Open vSwitch) | `neutron-controller.conf`, `neutron-compute.conf`, `ml2_conf.ini`, `openvswitch_agent.ini`, `dhcp_agent.ini`, `metadata_agent.ini`, `l3_agent.md` |
+| [`configs/cinder/`](configs/cinder/) | Block Storage | `cinder-controller.conf`, `cinder-storage.conf` |
+| [`configs/swift/`](configs/swift/) | Object Storage | `proxy-server.conf`, `account-server.conf`, `container-server.conf`, `object-server.conf`, `swift.conf`, `rings-setup.md` |
+| [`configs/heat/`](configs/heat/) | Orchestration | `heat.conf` |
+| [`configs/octavia/`](configs/octavia/) | Load Balancer | `octavia.conf` |
+| [`configs/horizon/`](configs/horizon/) | Dashboard | `local_settings.py` |
+
+---
+
 ## 📚 References
 - [OpenStack Component Services](https://www.openstack.org/software/project-navigator/openstack-components#openstack-services)
 - [OpenStack Installation Guide (2026.1)](https://docs.openstack.org/2026.1/install/)
