@@ -78,7 +78,7 @@ Beyond the static architecture above, the project documents four end-to-end oper
 | # | Scenario | Doc |
 |---|---|---|
 | 1 | Create a Virtual Machine (Nova boot workflow) | [docs/workflows/01-create-instance.md](docs/workflows/01-create-instance.md) |
-| 2 | *(to be added)* | — |
+| 2 | Storage Operations — create/attach volume, upload object, back up volume to Swift | [docs/workflows/02-storage-operations.md](docs/workflows/02-storage-operations.md) |
 | 3 | *(to be added)* | — |
 | 4 | *(to be added)* | — |
 

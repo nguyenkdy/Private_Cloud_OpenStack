@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 760" font-family="Consolas, 'SFMono-Regular', Menlo, monospace">
+  <defs>
+    <marker id="arH" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6480"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="1498" height="758" rx="14" fill="#f3f5fb" stroke="#d7dbec" stroke-width="1.5"/>
+
+  <!-- loop fragment (poll) -->
+  <rect x="20" y="515" width="580" height="80" fill="none" stroke="#3552c6" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="28" y="508" font-size="11" font-weight="700" fill="#3552c6">loop: poll until status=available</text>
+
+  <g stroke="#c3c9e0" stroke-width="1.3" stroke-dasharray="4 4">
+    <line x1="100" y1="82" x2="100" y2="640"/>
+    <line x1="310" y1="82" x2="310" y2="640"/>
+    <line x1="520" y1="82" x2="520" y2="640"/>
+    <line x1="730" y1="82" x2="730" y2="640"/>
+    <line x1="940" y1="82" x2="940" y2="640"/>
+    <line x1="1150" y1="82" x2="1150" y2="640"/>
+    <line x1="1360" y1="82" x2="1360" y2="640"/>
+  </g>
+
+  <g text-anchor="middle">
+    <g><rect x="25" y="30" width="150" height="50" rx="8" fill="#eceff8" stroke="#374066" stroke-width="1.4"/>
+      <text x="100" y="52" font-size="13" font-weight="700" fill="#1a2138">Client</text>
+      <text x="100" y="68" font-size="10" fill="#5b6480">CLI / SDK / Horizon</text></g>
+    <g><rect x="235" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="310" y="55" font-size="13" font-weight="700" fill="#1a2138">Keystone</text></g>
+    <g><rect x="445" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="520" y="52" font-size="13" font-weight="700" fill="#1a2138">Cinder API</text></g>
+    <g><rect x="655" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="730" y="52" font-size="13" font-weight="700" fill="#1a2138">Cinder Backup</text></g>
+    <g><rect x="865" y="30" width="150" height="50" rx="8" fill="#e9f7f3" stroke="#0f7a63" stroke-width="1.4"/>
+      <text x="940" y="52" font-size="13" font-weight="700" fill="#1a2138">Cinder Volume</text>
+      <text x="940" y="68" font-size="10" fill="#5b6480">source backend</text></g>
+    <g><rect x="1075" y="30" width="150" height="50" rx="8" fill="#fbf1e2" stroke="#b5710d" stroke-width="1.4"/>
+      <text x="1150" y="52" font-size="13" font-weight="700" fill="#1a2138">MariaDB</text>
+      <text x="1150" y="68" font-size="10" fill="#5b6480">backups table</text></g>
+    <g><rect x="1285" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="1360" y="52" font-size="13" font-weight="700" fill="#1a2138">Swift Proxy</text>
+      <text x="1360" y="68" font-size="10" fill="#5b6480">backup repository</text></g>
+  </g>
+
+  <g font-size="11.3" fill="#5b6480" paint-order="stroke" stroke="#f3f5fb" stroke-width="5" stroke-linejoin="round">
+    <text x="205" y="93" text-anchor="middle">request token</text>
+    <text x="205" y="138" text-anchor="middle">scoped token</text>
+    <text x="415" y="183" text-anchor="middle">POST /backups {volume_id}</text>
+    <text x="835" y="228" text-anchor="middle">INSERT backup; volume-&gt;backing-up</text>
+    <text x="625" y="273" text-anchor="middle">RPC dispatch backup job</text>
+    <text x="835" y="318" text-anchor="middle">read data, 32768B chunks</text>
+    <text x="1150" y="363" text-anchor="middle">PUT backup objects (~50MB each)</text>
+    <text x="1360" y="400" text-anchor="middle">store via Object Servers</text>
+    <text x="1360" y="415" text-anchor="middle">(replicated, see Flow B)</text>
+    <text x="1045" y="478" text-anchor="middle">UPDATE backup=available; volume-&gt;available</text>
+    <text x="415" y="523" text-anchor="middle">GET backup status</text>
+    <text x="205" y="568" text-anchor="middle">200 OK, status=available</text>
+  </g>
+
+  <g fill="none" stroke="#5b6480" stroke-width="2.2">
+    <path d="M100,100 L307,100" marker-end="url(#arH)"/>
+    <path d="M310,145 L103,145" marker-end="url(#arH)"/>
+    <path d="M100,190 L517,190" marker-end="url(#arH)"/>
+    <path d="M520,235 L1147,235" stroke-dasharray="10 4 2 4" marker-end="url(#arH)"/>
+    <path d="M520,280 L727,280" stroke-dasharray="9 6" marker-end="url(#arH)"/>
+    <path d="M730,325 L937,325" marker-end="url(#arH)"/>
+    <path d="M730,370 L1357,370" marker-end="url(#arH)"/>
+    <path d="M1360,410 C1420,410 1420,420 1360,420" marker-end="url(#arH)"/>
+    <path d="M730,485 L1147,485" stroke-dasharray="10 4 2 4" marker-end="url(#arH)"/>
+    <path d="M100,530 L517,530" marker-end="url(#arH)"/>
+    <path d="M520,570 L103,570" marker-end="url(#arH)"/>
+  </g>
+
+  <g font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <g><circle cx="40" cy="100" r="13" fill="#3552c6"/><text x="40" y="104">1</text></g>
+    <g><circle cx="40" cy="145" r="13" fill="#3552c6"/><text x="40" y="149">2</text></g>
+    <g><circle cx="40" cy="190" r="13" fill="#3552c6"/><text x="40" y="194">3</text></g>
+    <g><circle cx="40" cy="235" r="13" fill="#b5710d"/><text x="40" y="239">4</text></g>
+    <g><circle cx="40" cy="280" r="13" fill="#3552c6"/><text x="40" y="284">5</text></g>
+    <g><circle cx="40" cy="325" r="13" fill="#0f7a63"/><text x="40" y="329">6</text></g>
+    <g><circle cx="40" cy="370" r="13" fill="#0f7a63"/><text x="40" y="374">7</text></g>
+    <g><circle cx="40" cy="410" r="13" fill="#0f7a63"/><text x="40" y="414">8</text></g>
+    <g><circle cx="40" cy="485" r="13" fill="#b5710d"/><text x="40" y="489">9</text></g>
+    <g><circle cx="40" cy="530" r="13" fill="#3552c6"/><text x="40" y="534">10</text></g>
+    <g><circle cx="40" cy="570" r="13" fill="#3552c6"/><text x="40" y="574">11</text></g>
+  </g>
+
+  <g font-size="11.5" fill="#5b6480">
+    <line x1="60" y1="680" x2="100" y2="680" stroke="#5b6480" stroke-width="2.2"/>
+    <text x="108" y="684">sync REST / API</text>
+    <line x1="300" y1="680" x2="340" y2="680" stroke="#5b6480" stroke-width="2.2" stroke-dasharray="9 6"/>
+    <text x="348" y="684">async RPC (RabbitMQ)</text>
+    <line x1="580" y1="680" x2="620" y2="680" stroke="#5b6480" stroke-width="2.2" stroke-dasharray="10 4 2 4"/>
+    <text x="628" y="684">MariaDB read/write</text>
+  </g>
+</svg>
