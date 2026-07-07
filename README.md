@@ -3,6 +3,15 @@
 
 Below is the deployment model of the system, including the Controller, Compute/Storage nodes, Backend Services (MariaDB, RabbitMQ, Memcached, etcd), OpenStack Core Services (Nova, Neutron, Keystone, Glance, Cinder, Swift, Heat), and the monitoring/alerting system (Prometheus/Grafana):
 
+<p align="center">
+  <img width="100%" alt="OpenStack Private Cloud - System Architecture" src="assets/system-architecture.svg" />
+</p>
+
+**Legend**
+- Dashed box → physical/logical node boundary (Controller / Compute / Storage)
+- Blue chip → OpenStack core service · Amber chip → backend/infrastructure service · Green chip → compute/storage node service · Pink chip → monitoring
+- Solid line → synchronous REST/HTTPS API · Dashed line → AMQP messaging (RabbitMQ) · Dotted line → data-plane traffic (volume attach, image transfer) · Dash-dot line → metrics scrape (Prometheus)
+
 ---
 
 ## 🎥 Project Demo Video
