@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 980" font-family="Consolas, 'SFMono-Regular', Menlo, monospace">
+  <defs>
+    <marker id="arH" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6480"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="1558" height="978" rx="14" fill="#f3f5fb" stroke="#d7dbec" stroke-width="1.5"/>
+
+  <!-- loop fragment (poll stack status) -->
+  <rect x="10" y="755" width="540" height="70" fill="none" stroke="#3552c6" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="18" y="748" font-size="11" font-weight="700" fill="#3552c6">loop: poll until stack_status=CREATE_COMPLETE</text>
+
+  <g stroke="#c3c9e0" stroke-width="1.3" stroke-dasharray="4 4">
+    <line x1="90" y1="82" x2="90" y2="845"/>
+    <line x1="280" y1="82" x2="280" y2="845"/>
+    <line x1="470" y1="82" x2="470" y2="845"/>
+    <line x1="660" y1="82" x2="660" y2="845"/>
+    <line x1="850" y1="82" x2="850" y2="845"/>
+    <line x1="1040" y1="82" x2="1040" y2="845"/>
+    <line x1="1230" y1="82" x2="1230" y2="845"/>
+    <line x1="1420" y1="82" x2="1420" y2="845"/>
+  </g>
+
+  <g text-anchor="middle">
+    <g><rect x="15" y="30" width="150" height="50" rx="8" fill="#eceff8" stroke="#374066" stroke-width="1.4"/>
+      <text x="90" y="52" font-size="13" font-weight="700" fill="#1a2138">Client</text>
+      <text x="90" y="68" font-size="10" fill="#5b6480">CLI / SDK / Horizon</text></g>
+    <g><rect x="205" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="280" y="55" font-size="13" font-weight="700" fill="#1a2138">Keystone</text></g>
+    <g><rect x="395" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="470" y="52" font-size="13" font-weight="700" fill="#1a2138">Heat API</text>
+      <text x="470" y="68" font-size="10" fill="#5b6480">heat-api</text></g>
+    <g><rect x="585" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="660" y="52" font-size="13" font-weight="700" fill="#1a2138">Heat Engine</text>
+      <text x="660" y="68" font-size="10" fill="#5b6480">heat-engine</text></g>
+    <g><rect x="775" y="30" width="150" height="50" rx="8" fill="#fbf1e2" stroke="#b5710d" stroke-width="1.4"/>
+      <text x="850" y="52" font-size="13" font-weight="700" fill="#1a2138">MariaDB</text>
+      <text x="850" y="68" font-size="10" fill="#5b6480">stacks / resources</text></g>
+    <g><rect x="965" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="1040" y="52" font-size="13" font-weight="700" fill="#1a2138">Neutron</text></g>
+    <g><rect x="1155" y="30" width="150" height="50" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="1230" y="52" font-size="13" font-weight="700" fill="#1a2138">Nova API</text></g>
+    <g><rect x="1345" y="30" width="150" height="50" rx="8" fill="#e9f7f3" stroke="#0f7a63" stroke-width="1.4"/>
+      <text x="1420" y="52" font-size="13" font-weight="700" fill="#1a2138">Nova Compute</text>
+      <text x="1420" y="68" font-size="10" fill="#5b6480">+ libvirt</text></g>
+  </g>
+
+  <g font-size="11.2" fill="#5b6480" paint-order="stroke" stroke="#f3f5fb" stroke-width="5" stroke-linejoin="round">
+    <text x="185" y="93" text-anchor="middle">request token</text>
+    <text x="185" y="137" text-anchor="middle">scoped token</text>
+    <text x="280" y="181" text-anchor="middle">POST /stacks (template, params)</text>
+    <text x="565" y="225" text-anchor="middle">RPC create_stack</text>
+    <text x="755" y="269" text-anchor="middle">INSERT stack (CREATE_IN_PROGRESS)</text>
+    <text x="280" y="313" text-anchor="middle">201 Created (CREATE_IN_PROGRESS)</text>
+    <text x="660" y="356" text-anchor="middle">parse template -&gt; dependency graph</text>
+    <text x="660" y="410" text-anchor="middle">(depends_on / get_resource / get_attr)</text>
+    <text x="850" y="427" text-anchor="middle">create network / port</text>
+    <text x="945" y="463" text-anchor="middle">create Server A (OS::Nova::Server)</text>
+    <text x="945" y="498" text-anchor="middle">create Server B (OS::Nova::Server)</text>
+    <text x="1325" y="543" text-anchor="middle">build_and_run_instance x2 (Scenario 1)</text>
+    <text x="1325" y="587" text-anchor="middle">instance ACTIVE x2</text>
+    <text x="945" y="631" text-anchor="middle">GET server status (poll)</text>
+    <text x="945" y="675" text-anchor="middle">status: ACTIVE</text>
+    <text x="755" y="719" text-anchor="middle">UPDATE resources &amp; stack -&gt; CREATE_COMPLETE</text>
+    <text x="280" y="763" text-anchor="middle">GET /stacks/{id}</text>
+    <text x="280" y="803" text-anchor="middle">200 OK, CREATE_COMPLETE + outputs</text>
+  </g>
+
+  <g fill="none" stroke="#5b6480" stroke-width="2.2">
+    <path d="M90,100 L277,100" marker-end="url(#arH)"/>
+    <path d="M280,144 L93,144" marker-end="url(#arH)"/>
+    <path d="M90,188 L467,188" marker-end="url(#arH)"/>
+    <path d="M470,232 L657,232" stroke-dasharray="9 6" marker-end="url(#arH)"/>
+    <path d="M660,276 L847,276" stroke-dasharray="10 4 2 4" marker-end="url(#arH)"/>
+    <path d="M470,320 L93,320" marker-end="url(#arH)"/>
+    <path d="M660,364 C710,364 710,394 660,394" marker-end="url(#arH)"/>
+    <path d="M660,434 L1037,434" marker-end="url(#arH)"/>
+    <path d="M660,470 L1227,470" marker-end="url(#arH)"/>
+    <path d="M660,505 L1227,505" marker-end="url(#arH)"/>
+    <path d="M1230,550 L1423,550" stroke-dasharray="9 6" marker-end="url(#arH)"/>
+    <path d="M1420,594 L1233,594" marker-end="url(#arH)"/>
+    <path d="M660,638 L1227,638" marker-end="url(#arH)"/>
+    <path d="M1230,682 L663,682" marker-end="url(#arH)"/>
+    <path d="M660,726 L847,726" stroke-dasharray="10 4 2 4" marker-end="url(#arH)"/>
+    <path d="M90,770 L467,770" marker-end="url(#arH)"/>
+    <path d="M470,810 L93,810" marker-end="url(#arH)"/>
+  </g>
+
+  <g font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <g><circle cx="40" cy="100" r="13" fill="#3552c6"/><text x="40" y="104">1</text></g>
+    <g><circle cx="40" cy="144" r="13" fill="#3552c6"/><text x="40" y="148">2</text></g>
+    <g><circle cx="40" cy="188" r="13" fill="#3552c6"/><text x="40" y="192">3</text></g>
+    <g><circle cx="40" cy="232" r="13" fill="#3552c6"/><text x="40" y="236">4</text></g>
+    <g><circle cx="40" cy="276" r="13" fill="#b5710d"/><text x="40" y="280">5</text></g>
+    <g><circle cx="40" cy="320" r="13" fill="#3552c6"/><text x="40" y="324">6</text></g>
+    <g><circle cx="40" cy="364" r="13" fill="#3552c6"/><text x="40" y="368">7</text></g>
+    <g><circle cx="40" cy="434" r="13" fill="#3552c6"/><text x="40" y="438">8</text></g>
+    <g><circle cx="40" cy="470" r="13" fill="#3552c6"/><text x="40" y="474">9</text></g>
+    <g><circle cx="40" cy="505" r="13" fill="#3552c6"/><text x="40" y="509">10</text></g>
+    <g><circle cx="40" cy="550" r="13" fill="#3552c6"/><text x="40" y="554">11</text></g>
+    <g><circle cx="40" cy="594" r="13" fill="#0f7a63"/><text x="40" y="598">12</text></g>
+    <g><circle cx="40" cy="638" r="13" fill="#3552c6"/><text x="40" y="642">13</text></g>
+    <g><circle cx="40" cy="682" r="13" fill="#3552c6"/><text x="40" y="686">14</text></g>
+    <g><circle cx="40" cy="726" r="13" fill="#b5710d"/><text x="40" y="730">15</text></g>
+    <g><circle cx="40" cy="770" r="13" fill="#3552c6"/><text x="40" y="774">16</text></g>
+    <g><circle cx="40" cy="810" r="13" fill="#3552c6"/><text x="40" y="814">17</text></g>
+  </g>
+
+  <g font-size="11.5" fill="#5b6480">
+    <line x1="40" y1="905" x2="80" y2="905" stroke="#5b6480" stroke-width="2.2"/>
+    <text x="88" y="909">sync REST / API</text>
+    <line x1="280" y1="905" x2="320" y2="905" stroke="#5b6480" stroke-width="2.2" stroke-dasharray="9 6"/>
+    <text x="328" y="909">async RPC (RabbitMQ, intra-project)</text>
+    <line x1="620" y1="905" x2="660" y2="905" stroke="#5b6480" stroke-width="2.2" stroke-dasharray="10 4 2 4"/>
+    <text x="668" y="909">MariaDB read/write</text>
+    <text x="960" y="909">Cross-project calls (Heat -&gt; Neutron/Nova) are plain REST, not RPC</text>
+  </g>
+</svg>

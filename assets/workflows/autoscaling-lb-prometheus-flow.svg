@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 1040" font-family="Consolas, 'SFMono-Regular', Menlo, monospace">
+  <defs>
+    <marker id="arH" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5b6480"/>
+    </marker>
+  </defs>
+  <rect x="1" y="1" width="1558" height="1038" rx="14" fill="#f3f5fb" stroke="#d7dbec" stroke-width="1.5"/>
+
+  <!-- loop A: steady-state traffic serving -->
+  <rect x="10" y="90" width="540" height="235" fill="none" stroke="#0f7a63" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="18" y="103" font-size="11" font-weight="700" fill="#0f7a63">loop: steady-state traffic (continuous)</text>
+
+  <!-- loop B: steady-state monitoring -->
+  <rect x="200" y="350" width="560" height="140" fill="none" stroke="#a3225a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="208" y="363" font-size="11" font-weight="700" fill="#a3225a">loop: continuous scrape + rule evaluation</text>
+
+  <g stroke="#c3c9e0" stroke-width="1.3" stroke-dasharray="4 4">
+    <line x1="90" y1="82" x2="90" y2="905"/>
+    <line x1="280" y1="82" x2="280" y2="905"/>
+    <line x1="470" y1="82" x2="470" y2="905"/>
+    <line x1="660" y1="82" x2="660" y2="905"/>
+    <line x1="850" y1="82" x2="850" y2="905"/>
+    <line x1="1040" y1="82" x2="1040" y2="905"/>
+    <line x1="1230" y1="82" x2="1230" y2="905"/>
+    <line x1="1420" y1="82" x2="1420" y2="905"/>
+  </g>
+
+  <g text-anchor="middle">
+    <g><rect x="15" y="22" width="150" height="58" rx="8" fill="#eceff8" stroke="#374066" stroke-width="1.4"/>
+      <text x="90" y="44" font-size="13" font-weight="700" fill="#1a2138">Client</text>
+      <text x="90" y="60" font-size="9.5" fill="#5b6480">external traffic</text>
+      <text x="90" y="73" font-size="9.5" fill="#5b6480">(users / other services)</text></g>
+    <g><rect x="205" y="22" width="150" height="58" rx="8" fill="#e9f7f3" stroke="#0f7a63" stroke-width="1.4"/>
+      <text x="280" y="44" font-size="13" font-weight="700" fill="#1a2138">Octavia LB</text>
+      <text x="280" y="60" font-size="9.5" fill="#5b6480">amphora VM</text>
+      <text x="280" y="73" font-size="9.5" fill="#5b6480">HAProxy + health monitor</text></g>
+    <g><rect x="395" y="22" width="150" height="58" rx="8" fill="#e9f7f3" stroke="#0f7a63" stroke-width="1.4"/>
+      <text x="470" y="44" font-size="13" font-weight="700" fill="#1a2138">Instances</text>
+      <text x="470" y="60" font-size="9.5" fill="#5b6480">Nova Compute</text>
+      <text x="470" y="73" font-size="9.5" fill="#5b6480">existing pool members</text></g>
+    <g><rect x="585" y="22" width="150" height="58" rx="8" fill="#fbe9f0" stroke="#a3225a" stroke-width="1.4"/>
+      <text x="660" y="44" font-size="13" font-weight="700" fill="#1a2138">Prometheus</text>
+      <text x="660" y="60" font-size="9.5" fill="#5b6480">not an OpenStack</text>
+      <text x="660" y="73" font-size="9.5" fill="#5b6480">service (external)</text></g>
+    <g><rect x="775" y="22" width="150" height="58" rx="8" fill="#fbe9f0" stroke="#a3225a" stroke-width="1.4"/>
+      <text x="850" y="44" font-size="13" font-weight="700" fill="#1a2138">Alertmanager</text>
+      <text x="850" y="60" font-size="9.5" fill="#5b6480">generic webhook</text>
+      <text x="850" y="73" font-size="9.5" fill="#5b6480">receiver</text></g>
+    <g><rect x="965" y="22" width="150" height="58" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="1040" y="44" font-size="13" font-weight="700" fill="#1a2138">Heat</text>
+      <text x="1040" y="60" font-size="9.5" fill="#5b6480">heat-api +</text>
+      <text x="1040" y="73" font-size="9.5" fill="#5b6480">heat-engine</text></g>
+    <g><rect x="1155" y="22" width="150" height="58" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="1230" y="44" font-size="13" font-weight="700" fill="#1a2138">Nova API</text>
+      <text x="1230" y="60" font-size="9.5" fill="#5b6480">new ASG member</text>
+      <text x="1230" y="73" font-size="9.5" fill="#5b6480">(see Scenario 1)</text></g>
+    <g><rect x="1345" y="22" width="150" height="58" rx="8" fill="#eef1fc" stroke="#3552c6" stroke-width="1.4"/>
+      <text x="1420" y="44" font-size="13" font-weight="700" fill="#1a2138">Octavia API</text>
+      <text x="1420" y="60" font-size="9.5" fill="#5b6480">pool member</text>
+      <text x="1420" y="73" font-size="9.5" fill="#5b6480">registration</text></g>
+  </g>
+
+  <g font-size="11" fill="#5b6480" paint-order="stroke" stroke="#f3f5fb" stroke-width="5" stroke-linejoin="round">
+    <text x="185" y="98" text-anchor="middle">HTTP request -&gt; VIP:port</text>
+    <text x="375" y="143" text-anchor="middle">HAProxy forwards (round-robin)</text>
+    <text x="375" y="188" text-anchor="middle">response</text>
+    <text x="185" y="233" text-anchor="middle">response</text>
+    <text x="280" y="273" text-anchor="middle">health monitor: periodic check</text>
+    <text x="565" y="358" text-anchor="middle">scrape metrics (node/libvirt exporters)</text>
+    <text x="470" y="398" text-anchor="middle">scrape haproxy exporter</text>
+    <text x="660" y="438" text-anchor="middle">evaluate alerting rule vs threshold</text>
+    <text x="755" y="523" text-anchor="middle">rule fires -&gt; send alert</text>
+    <text x="945" y="563" text-anchor="middle">POST webhook -&gt; ScalingPolicy signal_url</text>
+    <text x="1040" y="603" text-anchor="middle">execute scale-out: AutoScalingGroup +1</text>
+    <text x="1135" y="673" text-anchor="middle">create new ASG member (see Scenario 1)</text>
+    <text x="1135" y="713" text-anchor="middle">instance ACTIVE (IP assigned)</text>
+    <text x="1230" y="753" text-anchor="middle">create pool member (new IP:port)</text>
+    <text x="850" y="793" text-anchor="middle">push updated pool config to amphora</text>
+    <text x="280" y="833" text-anchor="middle">health monitor marks member healthy -&gt; in rotation</text>
+  </g>
+
+  <g fill="none" stroke="#5b6480" stroke-width="2.2">
+    <path d="M90,105 L277,105" marker-end="url(#arH)"/>
+    <path d="M280,150 L467,150" marker-end="url(#arH)"/>
+    <path d="M470,195 L283,195" marker-end="url(#arH)"/>
+    <path d="M280,240 L93,240" marker-end="url(#arH)"/>
+    <path d="M280,280 C325,280 325,310 280,310" marker-end="url(#arH)"/>
+    <path d="M660,365 L473,365" stroke-dasharray="11 5 2 5" marker-end="url(#arH)"/>
+    <path d="M660,405 L283,405" stroke-dasharray="11 5 2 5" marker-end="url(#arH)"/>
+    <path d="M660,445 C705,445 705,475 660,475" marker-end="url(#arH)"/>
+    <path d="M660,530 L847,530" marker-end="url(#arH)"/>
+    <path d="M850,570 L1037,570" marker-end="url(#arH)"/>
+    <path d="M1040,610 C1085,610 1085,640 1040,640" marker-end="url(#arH)"/>
+    <path d="M1040,680 L1227,680" marker-end="url(#arH)"/>
+    <path d="M1230,720 L1043,720" marker-end="url(#arH)"/>
+    <path d="M1040,760 L1417,760" marker-end="url(#arH)"/>
+    <path d="M1420,800 L283,800" marker-end="url(#arH)"/>
+    <path d="M280,840 C325,840 325,870 280,870" marker-end="url(#arH)"/>
+  </g>
+
+  <g font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <g><circle cx="40" cy="105" r="13" fill="#3552c6"/><text x="40" y="109">1</text></g>
+    <g><circle cx="40" cy="150" r="13" fill="#0f7a63"/><text x="40" y="154">2</text></g>
+    <g><circle cx="40" cy="195" r="13" fill="#0f7a63"/><text x="40" y="199">3</text></g>
+    <g><circle cx="40" cy="240" r="13" fill="#3552c6"/><text x="40" y="244">4</text></g>
+    <g><circle cx="40" cy="280" r="13" fill="#0f7a63"/><text x="40" y="284">5</text></g>
+    <g><circle cx="40" cy="365" r="13" fill="#a3225a"/><text x="40" y="369">6</text></g>
+    <g><circle cx="40" cy="405" r="13" fill="#a3225a"/><text x="40" y="409">7</text></g>
+    <g><circle cx="40" cy="445" r="13" fill="#a3225a"/><text x="40" y="449">8</text></g>
+    <g><circle cx="40" cy="530" r="13" fill="#a3225a"/><text x="40" y="534">9</text></g>
+    <g><circle cx="40" cy="570" r="13" fill="#a3225a"/><text x="40" y="574">10</text></g>
+    <g><circle cx="40" cy="610" r="13" fill="#3552c6"/><text x="40" y="614">11</text></g>
+    <g><circle cx="40" cy="680" r="13" fill="#3552c6"/><text x="40" y="684">12</text></g>
+    <g><circle cx="40" cy="720" r="13" fill="#3552c6"/><text x="40" y="724">13</text></g>
+    <g><circle cx="40" cy="760" r="13" fill="#3552c6"/><text x="40" y="764">14</text></g>
+    <g><circle cx="40" cy="800" r="13" fill="#3552c6"/><text x="40" y="804">15</text></g>
+    <g><circle cx="40" cy="840" r="13" fill="#0f7a63"/><text x="40" y="844">16</text></g>
+  </g>
+
+  <g font-size="11.5" fill="#5b6480">
+    <line x1="40" y1="965" x2="80" y2="965" stroke="#5b6480" stroke-width="2.2"/>
+    <text x="88" y="969">sync REST / API</text>
+    <line x1="260" y1="965" x2="300" y2="965" stroke="#5b6480" stroke-width="2.2" stroke-dasharray="11 5 2 5"/>
+    <text x="308" y="969">metrics scrape (Prometheus)</text>
+    <text x="600" y="969">Green = data plane (LB/traffic/health)  ·  Rose = monitoring/alarm chain  ·  Blue = orchestration control plane</text>
+  </g>
+</svg>

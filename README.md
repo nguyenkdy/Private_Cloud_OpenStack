@@ -79,8 +79,8 @@ Beyond the static architecture above, the project documents four end-to-end oper
 |---|---|---|
 | 1 | Create a Virtual Machine (Nova boot workflow) | [docs/workflows/01-create-instance.md](docs/workflows/01-create-instance.md) |
 | 2 | Storage Operations — create/attach volume, upload object, back up volume to Swift | [docs/workflows/02-storage-operations.md](docs/workflows/02-storage-operations.md) |
-| 3 | *(to be added)* | — |
-| 4 | *(to be added)* | — |
+| 3 | Create VMs in a Stack (Heat orchestration) | [docs/workflows/03-heat-stack-create-vms.md](docs/workflows/03-heat-stack-create-vms.md) |
+| 4 | Autoscaling + Load Balancer + Prometheus (Octavia, Heat, Prometheus Alertmanager) | [docs/workflows/04-autoscaling-lb-prometheus.md](docs/workflows/04-autoscaling-lb-prometheus.md) |
 
 ---
 
