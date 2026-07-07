@@ -14,6 +14,19 @@ Below is the deployment model of the system, including the Controller, Compute/S
 
 ---
 
+## 🔄 Operational Workflows
+
+Beyond the static architecture above, the project documents four end-to-end operational scenarios as detailed sequence diagrams — who calls whom, over which protocol, and in what order:
+
+| # | Scenario | Doc |
+|---|---|---|
+| 1 | Create a Virtual Machine (Nova boot workflow) | [docs/workflows/01-create-instance.md](docs/workflows/01-create-instance.md) |
+| 2 | Storage Operations — create/attach volume, upload object, back up volume to Swift | [docs/workflows/02-storage-operations.md](docs/workflows/02-storage-operations.md) |
+| 3 | Create VMs in a Stack (Heat orchestration) | [docs/workflows/03-heat-stack-create-vms.md](docs/workflows/03-heat-stack-create-vms.md) |
+| 4 | Autoscaling + Load Balancer + Prometheus (Octavia, Heat, Prometheus Alertmanager) | [docs/workflows/04-autoscaling-lb-prometheus.md](docs/workflows/04-autoscaling-lb-prometheus.md) |
+
+---
+
 ## 🎥 Project Demo Video
 
 To watch the detailed, real-world operation of the system, please access the Google Drive folder via the link below:
@@ -68,19 +81,6 @@ The [`configs/`](configs/) directory holds reference configuration files transcr
 | [`configs/heat/`](configs/heat/) | Orchestration | `heat.conf` |
 | [`configs/octavia/`](configs/octavia/) | Load Balancer | `octavia.conf` |
 | [`configs/horizon/`](configs/horizon/) | Dashboard | `local_settings.py` |
-
----
-
-## 🔄 Operational Workflows
-
-Beyond the static architecture above, the project documents four end-to-end operational scenarios as detailed sequence diagrams — who calls whom, over which protocol, and in what order:
-
-| # | Scenario | Doc |
-|---|---|---|
-| 1 | Create a Virtual Machine (Nova boot workflow) | [docs/workflows/01-create-instance.md](docs/workflows/01-create-instance.md) |
-| 2 | Storage Operations — create/attach volume, upload object, back up volume to Swift | [docs/workflows/02-storage-operations.md](docs/workflows/02-storage-operations.md) |
-| 3 | Create VMs in a Stack (Heat orchestration) | [docs/workflows/03-heat-stack-create-vms.md](docs/workflows/03-heat-stack-create-vms.md) |
-| 4 | Autoscaling + Load Balancer + Prometheus (Octavia, Heat, Prometheus Alertmanager) | [docs/workflows/04-autoscaling-lb-prometheus.md](docs/workflows/04-autoscaling-lb-prometheus.md) |
 
 ---
 
