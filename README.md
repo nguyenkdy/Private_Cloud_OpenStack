@@ -71,6 +71,19 @@ The [`configs/`](configs/) directory holds reference configuration files transcr
 
 ---
 
+## 🔄 Operational Workflows
+
+Beyond the static architecture above, the project documents four end-to-end operational scenarios as detailed sequence diagrams — who calls whom, over which protocol, and in what order:
+
+| # | Scenario | Doc |
+|---|---|---|
+| 1 | Create a Virtual Machine (Nova boot workflow) | [docs/workflows/01-create-instance.md](docs/workflows/01-create-instance.md) |
+| 2 | *(to be added)* | — |
+| 3 | *(to be added)* | — |
+| 4 | *(to be added)* | — |
+
+---
+
 ## 📚 References
 - [OpenStack Component Services](https://www.openstack.org/software/project-navigator/openstack-components#openstack-services)
 - [OpenStack Installation Guide (2026.1)](https://docs.openstack.org/2026.1/install/)
