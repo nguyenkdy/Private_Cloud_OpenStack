@@ -1,0 +1,18 @@
+# Source: https://docs.openstack.org/install-guide/environment-sql-database-ubuntu.html
+# OpenStack 2026.1 Installation Guide - SQL database for Ubuntu
+#
+# Destination on controller node: /etc/mysql/mariadb.conf.d/99-openstack.cnf
+#
+# Placeholder values (IP addresses) must be replaced with your own
+# environment's values before real use. No passwords appear in this file;
+# database user passwords (e.g. KEYSTONE_DBPASS, GLANCE_DBPASS, NOVA_DBPASS,
+# etc.) are set later via SQL GRANT statements per-service.
+
+[mysqld]
+bind-address = 10.0.0.11
+
+default-storage-engine = innodb
+innodb_file_per_table = on
+max_connections = 4096
+collation-server = utf8_general_ci
+character-set-server = utf8
