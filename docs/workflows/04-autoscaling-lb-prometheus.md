@@ -19,6 +19,13 @@ Sources consulted:
 ## Key concepts
 
 - **Octavia's control plane** is 5 daemons: **API Controller** ("takes API requests... ships them off to the controller worker over the Oslo messaging bus"), **Controller Worker** ("performs the actions necessary to fulfill the API request"), **Health Manager** ("monitors individual amphorae... handles failover events"), **Housekeeping Manager** (cleans up stale records, rotates certs), and **Driver Agent**.
+
+<p align="center">
+  <img width="100%" alt="Octavia Component Architecture" src="../../assets/octavia-component-architecture.svg" />
+</p>
+
+**Legend**: orange = Octavia control-plane daemons (API, Worker, Health Manager, Housekeeping Manager, Driver Agent) · purple = Amphora Driver (used by the API to talk to amphorae directly, e.g. for cert rotation) · pink = messaging/storage/external services (Oslo Messaging, Database, Barbican/Castellan for TLS certs, Nova, Neutron) · blue = the Controller Worker's driver interfaces (Amphora, Certificate, Compute, Network) · green = the amphora fleet itself.
+
 - **Amphorae** are "the individual virtual machines, containers, or bare metal servers that accomplish the delivery of load balancing services" — the reference implementation is "an Ubuntu virtual machine running HAProxy."
 - Octavia's data model, in order: **Load Balancer** (the VIP) → **Listener** (protocol/port) → **Pool** (backend group + algorithm, e.g. `ROUND_ROBIN`) → **Members** (`IP:port` of each backend) → **Health Monitor** (periodic backend health checks).
 - **No Aodh in this deployment.** Instead: Prometheus evaluates its own alerting rules against the metrics it has scraped, hands firing alerts to **Alertmanager**, and Alertmanager's generic webhook receiver POSTs straight to Heat.
